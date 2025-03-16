@@ -1,6 +1,5 @@
 # tsconfig.jsonに追加する設定
 
-## TODO: ここから
 ## 初期設定
 node_modulesの中にあるため基本的にnpx tscの形で使用する。  
 ```zsh

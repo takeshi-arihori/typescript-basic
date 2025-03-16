@@ -31,3 +31,10 @@ npx tsc --init
 /node_modules
 /dist
 ```
+
+### typescriptのコンパイル
+```zsh
+npx tsc
+または
+npx tsc -w
+```
