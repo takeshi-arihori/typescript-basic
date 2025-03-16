@@ -24,3 +24,10 @@ npm install --save-dev typescript@4.6.2 @types/node@14.14.10
 ```zsh
 npx tsc --init
 ```
+コンパイラオプションの設定  
+
+### .gitignoreに以下を追加
+```zsh
+/node_modules
+/dist
+```
