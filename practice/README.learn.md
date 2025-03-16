@@ -2,24 +2,24 @@
 
 ## 文と式の違い
 - 式: プログラムの実際の計算を行うため結果がある
-```zsh
+```typescript
 1 + 1
 ```
 - 文: プログラムの構造を決めるためのもので、結果がない
-```zsh
+```typescript
 const target = "world!";
 ```
 変数宣言は、const = 変数名 = 式(ここでは文字列リテラル) という形の文で表される。  
 
 - 式文: 式と文の両方の性質を持つもので最後にセミコロンがつく
-```zsh
+```typescript
 console.log("Hello, " + target);
 ```
 式分は式を実行したいが結果は必要ない場合に使える文。  
 例: `console.log()`はコンソールに文字列を表示したいだけで、何らかの結果を得たいわけではない。  
 
 ## 数値リテラル
-```zsh
+```typescript
 /**
  * 2進数リテラル
  * @constant {number}
@@ -94,3 +94,26 @@ console.log(10n / 3n); // 3n
 - null: 値が存在しないことを表す
 - undefined: 値が代入されていないことを表す
 TypeScriptでは、サポートが厚いundefinedを推奨。
+
+## 型推論
+```typescript
+// プリミティブ型投資の変換(暗黙の変換)
+import { createInterface } from "readline";
+
+const rl = createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('文字列を入力してください:', (line) => {
+    // 文字列が入力されるとここが実行される
+    // 標準入力内容は文字列として扱われる(line)ので、結果は文字列として出力される
+    // console.log(`${line + 1000} が入力されました。`);
+
+    // 型推論: 明示的な型注釈がない場合にもTypeScriptは変数の方を自動的に判断してくれる。
+    const result = line + 1000;
+    console.log(result);
+    rl.close();
+});
+```
+
