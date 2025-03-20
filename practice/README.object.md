@@ -59,7 +59,70 @@ const objFooBar2: FooBarObj2 = {
 ```
 
 ### interfaceの特徴
-1. オブジェクト型のみ扱える
+- オブジェクト型のみ扱える
 
 ほとんどの場合、interface宣言はtype文で代用できる。interface宣言は使用せず、type文のみを使用するという流儀もある。
+
+
+## オプショナルなプロパティ
+
+あってもなくてもよいプロパティを定義するには、プロパティ名の後ろに `?` をつけます。
+
+```typescript
+interface User {
+    name: string;
+    age?: number;
+}
+
+const userA: User = {
+    name: 'Taro',
+    age: 25
+};
+
+const userB: User = {
+    name: 'Jiro'
+};
+```
+
+## 読み取り専用プロパティ
+
+`readonly` をつけるとプロパティが読み取り専用になります。プロパティを変更する必要がない場合は `readonly` を使うとよいです。
+
+```typescript
+interface User2 {
+    readonly name: string;
+    age: number;
+}
+
+const userC: User2 = {
+    name: 'Taro',
+    age: 25
+};
+
+// userC.name = 'Jiro'; // エラー
+```
+
+## typeofキーワードで変数の型を得る
+
+`typeof` キーワードを使うと、変数の型を取得できます。
+
+```typescript
+const obj = {
+    foo: 123,
+    bar: 'hello'
+};
+
+type T = typeof obj;
+const obj2: T = {
+    foo: 123,
+    bar: 'hello'
+};
+```
+
+通常は型が最上位の事実となるため、`type 変数名 = {変数名: 型}` として型を定義します。型は設計を表すものなので、実装に関しては型よりも下位にくることになります（設計に依存して書かれているため）。`typeof` を使用する場面は、値が最上位に来るケースです。
+
+```typescript
+const commandList = ["attack", "defend", "run"] as const;
+type Command = typeof commandList[number];
+```
 
