@@ -26,3 +26,8 @@ const arr4: Array<{ name: string; age: number }> = [
 /**
  * readonly配列
  */
+// 内容を書き換えられない配列型
+const arr5: readonly number[] = [1, 10, 100];
+
+// 以下はコンパイルエラー
+// arr5[0] = 1000;
