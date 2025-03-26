@@ -126,3 +126,91 @@ const commandList = ["attack", "defend", "run"] as const;
 type Command = typeof commandList[number];
 ```
 
+## 型引数（ジェネリック型）
+
+型引数は、`type`文や`interface`文で型を作成する際に使用される機能です。これにより、似たような構造を持つ型を柔軟に定義することができます。
+
+### 基本的な型引数
+
+```typescript
+type User<T> = {
+    name: string;
+    child: T;
+};
+
+const user: User<number> = {
+    name: "John",
+    child: 1000,
+};
+```
+
+### 複数の型引数
+
+型引数は複数指定することもできます：
+
+```typescript
+type Family<Parent, Child> = {
+    mother: Parent;
+    father: Parent;
+    child: Child;
+};
+
+const obj: Family<number, boolean> = {
+    mother: 0,
+    father: 1,
+    child: true,
+};
+```
+
+### 型引数の制約
+
+`extends`キーワードを使用することで、型引数に制約を付けることができます：
+
+```typescript
+type HasName = {
+    name: string;
+};
+
+type Family<Parent extends HasName, Child extends HasName> = {
+    mother: Parent;
+    father: Parent;
+    child: Child;
+};
+
+type Animal = {
+    name: string;
+};
+
+type Human = {
+    name: string;
+    age: number;
+};
+
+// OK
+type T = Family<Animal, Human>;
+
+// エラー
+// type T2 = Family<number, string>;
+```
+
+### オプショナルな型引数
+
+型引数にはデフォルト値を設定することができます：
+
+```typescript
+type Family<Parent = Animal, Child = Animal> = {
+    mother: Parent;
+    father: Parent;
+    child: Child;
+};
+
+// 通常通りの使い方
+type S = Family<string, string>;
+// TはFamily<Animal, Animal>型と同じ
+type T = Family<string>;
+// UはFamily<string, Animal>型と同じ
+type U = Family<string>;
+```
+
+型引数は、高度に抽象化されたプログラムを書くために不可欠な機能です。具体的な型に言及せず、「構造」のみに言及することで、より柔軟な型システムを構築することができます。
+
