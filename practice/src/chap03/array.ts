@@ -126,4 +126,17 @@ map.set("foo", 1234);
 console.log(map.get("foo")); // 1234
 console.log(map.get("bar")); // undefined
 
+/**
+ * Setオブジェクト
+ */
 
+// 重複しない値の集合を管理するオブジェクト
+
+const set: Set<number> = new Set([1, 2, 3, 4, 5]);
+
+console.log(set.has(1)); // true
+console.log(set.has(6)); // false
+
+set.add(6);
+
+console.log(set.size); // 6
