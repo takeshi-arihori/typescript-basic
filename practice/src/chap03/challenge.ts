@@ -6,17 +6,17 @@
 
 // const users: User[] = [];
 
-type User = {
-    name: string;
-    age: number;
-    premiumUser: boolean;
-};
+// type User = {
+//     name: string;
+//     age: number;
+//     premiumUser: boolean;
+// };
 
-const data: string = `
-uhyo,26,1
-John Smith,17,0
-Mary Sue,14,1
-`;
+// const data: string = `
+// uhyo,26,1
+// John Smith,17,0
+// Mary Sue,14,1
+// `;
 
 // const lines = data.split("\n");
 
@@ -32,22 +32,4 @@ Mary Sue,14,1
 //     });
 // }
 
-const users: User[] = data.split("\n")
-    .filter(line => line !== "")
-    .map(line => {
-        const [name, ageString, premiumUserString] = line.split(",");
-
-        return {
-            name,
-            age: Number(ageString),
-            premiumUser: premiumUserString === "1",
-        };
-    });
-
-for (const user of users) {
-    if (user.premiumUser) {
-        console.log(`${user.name}はプレミアムユーザーです。`);
-    } else {
-        console.log(`${user.name}はプレミアムユーザーではありません。`);
-    }
-}
+// console.log(users);
