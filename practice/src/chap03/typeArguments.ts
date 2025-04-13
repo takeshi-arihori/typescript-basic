@@ -87,33 +87,33 @@
  */
 // 基本はデフォルト値を定義するためだが、たまに型の中身をカスタマイズしたいときに使用される
 // 型引数の後ろに　 = 型 を付与するとその型が省略された場合のデフォルト値として扱われる(オプショナルな型引数)
-type HasName = {
-    name: string;
-};
-type Animal = {
-    name: string;
-};
-type Family<Parent = Animal, Child = Animal> = {
-    mother: Parent;
-    father: Parent;
-    child: Child;
-};
+// type HasName = {
+//     name: string;
+// };
+// type Animal = {
+//     name: string;
+// };
+// type Family<Parent = Animal, Child = Animal> = {
+//     mother: Parent;
+//     father: Parent;
+//     child: Child;
+// };
 
-// 通常通りの使い方
-type S = Family<string, string>;
-// TはFamily<Animal, Animal>型と同じ
-type T = Family<string>;
-// UはFamily<string, Animal>型と同じ
-type U = Family<string>;
+// // 通常通りの使い方
+// type S = Family<string, string>;
+// // TはFamily<Animal, Animal>型と同じ
+// type T = Family<string>;
+// // UはFamily<string, Animal>型と同じ
+// type U = Family<string>;
 
-type Family2<Parent, Child = Parent> = {
-    mother: Parent;
-    father: Parent;
-    child: Child;
-};
+// type Family2<Parent, Child = Parent> = {
+//     mother: Parent;
+//     father: Parent;
+//     child: Child;
+// };
 
-type Family3<Parent extends HasName, Child extends HasName = Animal> = {
-    mother: Parent;
-    father: Parent;
-    child: Child;
-};
+// type Family3<Parent extends HasName, Child extends HasName = Animal> = {
+//     mother: Parent;
+//     father: Parent;
+//     child: Child;
+// };
