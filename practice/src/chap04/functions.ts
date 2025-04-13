@@ -73,20 +73,20 @@
  * コールバック関数
  */
 
-type User = {
-    name: string,
-    age: number,
-}
-const users: User[] = [
-    { name: "uhyo", age: 26 },
-    { name: "John Smith", age: 17 },
-];
+// type User = {
+//     name: string,
+//     age: number,
+// }
+// const users: User[] = [
+//     { name: "uhyo", age: 26 },
+//     { name: "John Smith", age: 17 },
+// ];
 
 // usersはUser型の要素を持つ配列だったので、users.mapに渡される関数getNameは引数としてUser型を受け取る関数でなければならない。
 // mapのコールバック関数については返り値の型については特に制限がない。
 // 関数式に直接引数として与える
-const getAge = (u: User): number => u.age;
-const getName = (u: User): string => u.name;
+// const getAge = (u: User): number => u.age;
+// const getName = (u: User): string => u.name;
 
 // const names = users.map(getName);
 // console.log(names); // ["uhyo", "John Smith"]
@@ -94,18 +94,18 @@ const getName = (u: User): string => u.name;
 // console.log(ages); // [26, 17]
 
 // filterメソッド
-const adultUsers = users.filter((u: User) => u.age >= 20);
+// const adultUsers = users.filter((u: User) => u.age >= 20);
 
-// findメソッド
-const john = users.find((u: User) => u.name.startsWith("John"));
+// // findメソッド
+// const john = users.find((u: User) => u.name.startsWith("John"));
 
-// someメソッド
-const seniorExists = users.some((u: User) => u.age >= 60);
+// // someメソッド
+// const seniorExists = users.some((u: User) => u.age >= 60);
 
-// everyメソッド
-const allAdult = users.every((u: User) => u.age >= 20);
+// // everyメソッド
+// const allAdult = users.every((u: User) => u.age >= 20);
 
-console.log(adultUsers); // [{ name: "uhyo", age: 26 }]
-console.log(john); // { name: "John Smith", age: 17 }
-console.log(seniorExists); // false
-console.log(allAdult); // false
+// console.log(adultUsers); // [{ name: "uhyo", age: 26 }]
+// console.log(john); // { name: "John Smith", age: 17 }
+// console.log(seniorExists); // false
+// console.log(allAdult); // false
