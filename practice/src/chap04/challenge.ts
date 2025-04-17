@@ -32,15 +32,15 @@
 /**
  * 練習問題 4.6.3 コールバック
  */
-type Callback<T, U> = (value: T) => U;
-function map<T, U>(array: T[], callback: Callback<T, U>): U[] {
-    const result: U[] = [];
-    for (const num of array) {
-        result.push(callback(num));
-    }
-    return result;
-}
+// type Callback<T, U> = (value: T) => U;
+// function map<T, U>(array: T[], callback: Callback<T, U>): U[] {
+//     const result: U[] = [];
+//     for (const num of array) {
+//         result.push(callback(num));
+//     }
+//     return result;
+// }
 
-const data = [1, 1, 2, 4, 6, 8, 13];
-const result = map(data, (x) => x * 10);
-console.log(result); // [10, 10, 20, 40, 60, 80, 130]
+// const data = [1, 1, 2, 4, 6, 8, 13];
+// const result = map(data, (x) => x * 10);
+// console.log(result); // [10, 10, 20, 40, 60, 80, 130]
